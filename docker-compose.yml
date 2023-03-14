@@ -1,0 +1,6 @@
+versions: "3.9"
+services:
+  nodejs:
+    image: jinnabalu/nodejs-sample
+    container_name: nodejs-sample
+    ports: ["8080:8080"]
