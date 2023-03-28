@@ -1,0 +1,21 @@
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nodejs-ingress
+  namespace: node-sample-namespace
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: nodesampleapp.com
+      http:
+        paths:
+          - path: /nodejs-app
+            pathType: Prefix
+            backend:
+              service:
+                name: nodejs-service
+                port:
+                  name: http
